@@ -4,6 +4,13 @@
 
 int parsen(std::string rechnung);
 
+void wait()
+{
+	cin.clear();
+	cin.ignore(cin.rdbuf()->in_avail());
+	cin.get();
+}
+
 int main(){
   std::string rechnung;
     
@@ -12,6 +19,7 @@ int main(){
 
   parsen(rechnung);
   
+  wait();
   return 0;
 }
 
