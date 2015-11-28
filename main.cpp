@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
+#include "string.h"
 
-#define ERFOLGREICH 100
-
-int string(std::string rechnung);
+int parsen(std::string rechnung);
 
 int main(){
   std::string rechnung;
@@ -11,16 +10,9 @@ int main(){
   std::cout << "Rechnung eingeben: " << std::endl;
   std::cin >> rechnung;
 
-  string(rechnung);
+  parsen(rechnung);
   
   return 0;
 }
 
 
-int string(std::string rechnung){
-
-  std::cout << rechnung << std::endl;
-  int laenge = rechnung.size();
-  std::cout << "Laenge der Rechnung " << laenge << std::endl;
-  return ERFOLGREICH;
-}
