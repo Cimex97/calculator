@@ -1,2 +1,2 @@
 rechner:
-	g++ main.cpp -o Rechner
+	g++ main.cpp string.cpp string.h -o Rechner.exe
