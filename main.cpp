@@ -1,5 +1,6 @@
-#inculde <iostream>
+#include <iostream>
 
-std::int main(){
-  std::return 0;
+int main(){
+  std::cout << "Hello World" << std::endl;
+  return 0;
 }
