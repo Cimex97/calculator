@@ -1,2 +1,2 @@
 rechner:
-	g++ quelldatein/main.cpp quelldatein/string.cpp headerdatein/string.h -o Rechner.exe
+	g++ quelldatein/main.cpp quelldatein/parsen.cpp headerdatein/parsen.h -o Rechner.exe

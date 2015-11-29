@@ -1,5 +1,5 @@
-#ifndef __STRING_H___
-#define __STRING_H__
+#ifndef __PARSEN_H___
+#define __PARSEN_H__
 
 #define ERFOLGREICH 100
 
@@ -9,6 +9,10 @@ struct rechenzeichen {     //struct für die rechenzeichen
   char geteielt = '/';
   char plus = '+';
   char minus = '-';
+  char klammerauf = '(';    //hinzugfuegt
+  char klammerzu = ')';
 };
 
-#endif /* string.h*/
+#endif
+
+    /* string.h*/

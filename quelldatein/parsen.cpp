@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "../headerdatein/string.h"
+#include "../headerdatein/parsen.h"
 
 int parsen(std::string rechnung){      //eingabe parsen
 
