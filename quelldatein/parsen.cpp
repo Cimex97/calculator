@@ -28,17 +28,75 @@ int parsen(std::string rechnung)
       {
       case '+':
 	ende = i - start;
-	//std::cout << rechnung.substr(start, ende) <<"   start: " << start << "    i: " << i << std::endl ;
-	zahlen[count] = rechnung.substr(start, ende);
+       	zahlen[count] = rechnung.substr(start, ende);
 	mathe[count] = rechnung.substr((start+ende),1);
 	start = ++i;
 	std::cout << zahlen[count] << std::endl
+		  << mathe[count] << std::endl
+		  << count << std::endl;
+	count = ++count;
+	break;
+      case '-':
+	ende = i - start;
+	zahlen[count] = rechnung.substr(start, ende);
+	mathe[count] = rechnung.substr((start+ende),1);
+	start = ++i;
+
+	std::cout << zahlen[count] << std::endl
 		  << mathe[count] << std::endl;
 	count = ++count;
-	
 	break;
-      case '-': std::cout << "Ein Minus wurde gelesen" << std::endl <<std::endl;
+      case '*':
+	ende = i - start;
+	zahlen[count] = rechnung.substr(start, ende);
+	mathe[count] = rechnung.substr((start+ende),1);
+	start = ++i;
+
+	std::cout << zahlen[count] << std::endl
+		  << mathe[count] << std::endl;
+	count = ++count;
 	break;
+      case '/':
+	ende = i - start;
+	zahlen[count] = rechnung.substr(start, ende);
+	mathe[count] = rechnung.substr((start+ende),1);
+	start = ++i;
+
+	std::cout << zahlen[count] << std::endl
+		  << mathe[count] << std::endl;
+	count = ++count;
+	break;
+      case '^':
+	ende = i - start;
+	zahlen[count] = rechnung.substr(start, ende);
+	mathe[count] = rechnung.substr((start+ende),1);
+	start = ++i;
+
+	std::cout << zahlen[count] << std::endl
+		  << mathe[count] << std::endl;
+	count = ++count;
+	break;
+      case '(':
+	ende = i - start;
+	zahlen[count] = rechnung.substr(start, ende);
+	mathe[count] = rechnung.substr((start+ende),1);
+	start = ++i;
+
+	std::cout << zahlen[count] << std::endl
+		  << mathe[count] << std::endl;
+	count = ++count;
+	break;
+      case ')':
+	ende = i - start;
+	zahlen[count] = rechnung.substr(start, ende);
+	mathe[count] = rechnung.substr((start+ende),1);
+	start = ++i;
+
+	std::cout << zahlen[count] << std::endl
+		  << mathe[count] << std::endl;
+	count = ++count;
+	break;
+   
       }
   }
   
