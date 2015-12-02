@@ -32,8 +32,7 @@ int parsen(std::string rechnung)
 	mathe[count] = rechnung.substr((start+ende),1);
 	start = ++i;
 	std::cout << zahlen[count] << std::endl
-		  << mathe[count] << std::endl
-		  << count << std::endl;
+		  << mathe[count] << std::endl;
 	count = ++count;
 	break;
       case '-':
@@ -96,7 +95,17 @@ int parsen(std::string rechnung)
 		  << mathe[count] << std::endl;
 	count = ++count;
 	break;
-   
+      default:
+	if(rechnung.at(i) <= '9')
+	  {
+	    //std::cout << "eingabe ist eine Zahl" << std::endl;
+	    break;
+	  }
+	  else
+	    {
+	      std::cout << "Syntax fehler!" << std::endl;
+	      return SYNTAX_FEHLER;
+	    }
       }
   }
   

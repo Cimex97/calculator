@@ -16,7 +16,6 @@ int main(){
     
   std::cout << "Rechnung eingeben: " << std::endl;
   std::cin >> rechnung;
-
   parsen(rechnung);
   
   wait();

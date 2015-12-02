@@ -2,7 +2,7 @@
 #define __PARSEN_H__
 
 #define ERFOLGREICH 100
-
+#define SYNTAX_FEHLER 300
 struct rechenzeichen {     //struct für die rechenzeichen
   char quadrat = '^';
   char mal = '*';
