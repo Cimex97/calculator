@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 #include "../headerdatein/parsen.h"
 
 #define MAX_SIZE 60
@@ -9,17 +10,24 @@ int parsen(std::string rechnung)
 
   struct rechenzeichen zeichen;
   
-  /*  int posplus = rechnung.find(zeichen.plus);                           //Position der Rechenzeichen suchen
-      int posminus = rechnung.find(zeichen.minus);
-      int posmal = rechnung.find(zeichen.mal);
-      int posgeteielt = rechnung.find(zeichen.geteielt);
-      int posquadrat = rechnung.find(zeichen.quadrat);*/
-  int leange = rechnung.length();
+  
+  //  int leange = rechnung.length();
   int start = 0;
   int ende = 0;
-  int count = 0; 
+  int count = 0;
+  
+  std::string endezeichen = "\n";
   std::string zahlen[MAX_SIZE];
   std::string mathe[MAX_SIZE];
+
+  std::stringstream ss[MAX_SIZE];
+  int number[MAX_SIZE];
+
+  
+  
+  rechnung = rechnung + endezeichen;
+  
+  int leange = rechnung.length();
   
   std::cout << std::endl << "Laenge: " << leange << std::endl;
   
@@ -30,9 +38,16 @@ int parsen(std::string rechnung)
 	ende = i - start;
        	zahlen[count] = rechnung.substr(start, ende);
 	mathe[count] = rechnung.substr((start+ende),1);
-	start = ++i;
+	start = ++i; 
+	
 	std::cout << zahlen[count] << std::endl
-		  << mathe[count] << std::endl;
+		  << mathe[count] << std::endl
+		  << count << std::endl;
+
+
+	ss[count] << zahlen[count];
+	ss[count] >> number[count];
+   
 	count = ++count;
 	break;
       case '-':
@@ -40,6 +55,10 @@ int parsen(std::string rechnung)
 	zahlen[count] = rechnung.substr(start, ende);
 	mathe[count] = rechnung.substr((start+ende),1);
 	start = ++i;
+
+	ss[count] << zahlen[count];
+	ss[count] >> number[count];
+	
 
 	std::cout << zahlen[count] << std::endl
 		  << mathe[count] << std::endl;
@@ -51,6 +70,10 @@ int parsen(std::string rechnung)
 	mathe[count] = rechnung.substr((start+ende),1);
 	start = ++i;
 
+	ss[count] << zahlen[count];
+	ss[count] >> number[count];
+	
+	
 	std::cout << zahlen[count] << std::endl
 		  << mathe[count] << std::endl;
 	count = ++count;
@@ -61,6 +84,10 @@ int parsen(std::string rechnung)
 	mathe[count] = rechnung.substr((start+ende),1);
 	start = ++i;
 
+	ss[count] << zahlen[count];
+	ss[count] >> number[count];
+	
+	
 	std::cout << zahlen[count] << std::endl
 		  << mathe[count] << std::endl;
 	count = ++count;
@@ -71,30 +98,29 @@ int parsen(std::string rechnung)
 	mathe[count] = rechnung.substr((start+ende),1);
 	start = ++i;
 
+	ss[count] << zahlen[count];
+	ss[count] >> number[count];
+	
+	
 	std::cout << zahlen[count] << std::endl
 		  << mathe[count] << std::endl;
 	count = ++count;
 	break;
-      case '(':
+      case '\n':
 	ende = i - start;
 	zahlen[count] = rechnung.substr(start, ende);
 	mathe[count] = rechnung.substr((start+ende),1);
 	start = ++i;
 
+	ss[count] << zahlen[count];
+	ss[count] >> number[count];
+	
+	
 	std::cout << zahlen[count] << std::endl
 		  << mathe[count] << std::endl;
 	count = ++count;
 	break;
-      case ')':
-	ende = i - start;
-	zahlen[count] = rechnung.substr(start, ende);
-	mathe[count] = rechnung.substr((start+ende),1);
-	start = ++i;
-
-	std::cout << zahlen[count] << std::endl
-		  << mathe[count] << std::endl;
-	count = ++count;
-	break;
+	
       default:
 	if(rechnung.at(i) <= '9')
 	  {
@@ -107,9 +133,9 @@ int parsen(std::string rechnung)
 	      return SYNTAX_FEHLER;
 	    }
       }
+    
   }
-  
-
+    
   return ERFOLGREICH;
 }
 
