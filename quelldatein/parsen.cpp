@@ -8,10 +8,9 @@
 int parsen(std::string rechnung)
 {                                                                         //eingabe parsen
 
-  struct rechenzeichen zeichen;
+  struct rechnug werte;
   
-  
-  //  int leange = rechnung.length();
+
   int start = 0;
   int ende = 0;
   int count = 0;
