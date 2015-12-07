@@ -3,120 +3,87 @@
 #include <sstream>
 #include "../headerdatein/parsen.h"
 
-#define MAX_SIZE 60
 
-int parsen(std::string rechnung)
+struct werte* parsen(std::string rechnung, struct werte* werte)
 {                                                                         //eingabe parsen
-
-  struct rechnug werte;
-  
 
   int start = 0;
   int ende = 0;
   int count = 0;
   
   std::string endezeichen = "\n";
-  std::string zahlen[MAX_SIZE];
-  std::string mathe[MAX_SIZE];
-
-  std::stringstream ss[MAX_SIZE];
-  int number[MAX_SIZE];
-
-  
   
   rechnung = rechnung + endezeichen;
   
   int leange = rechnung.length();
-  
-  std::cout << std::endl << "Laenge: " << leange << std::endl;
   
   for(int i=0;i<leange;i++){
     switch(rechnung.at(i))
       {
       case '+':
 	ende = i - start;
-       	zahlen[count] = rechnung.substr(start, ende);
-	mathe[count] = rechnung.substr((start+ende),1);
+       	werte->zahlen[count] = rechnung.substr(start, ende);
+	werte->mathe[count] = rechnung.substr((start+ende),1);
 	start = ++i; 
 	
-	std::cout << zahlen[count] << std::endl
-		  << mathe[count] << std::endl
-		  << count << std::endl;
-
-
-	ss[count] << zahlen[count];
-	ss[count] >> number[count];
+	werte->ss[count] << werte->zahlen[count];
+	werte->ss[count] >> werte->number[count];
    
 	count = ++count;
 	break;
       case '-':
 	ende = i - start;
-	zahlen[count] = rechnung.substr(start, ende);
-	mathe[count] = rechnung.substr((start+ende),1);
+	werte->zahlen[count] = rechnung.substr(start, ende);
+	werte->mathe[count] = rechnung.substr((start+ende),1);
 	start = ++i;
 
-	ss[count] << zahlen[count];
-	ss[count] >> number[count];
+	werte->ss[count] << werte->zahlen[count];
+	werte->ss[count] >> werte->number[count];
 	
-
-	std::cout << zahlen[count] << std::endl
-		  << mathe[count] << std::endl;
 	count = ++count;
 	break;
       case '*':
 	ende = i - start;
-	zahlen[count] = rechnung.substr(start, ende);
-	mathe[count] = rechnung.substr((start+ende),1);
+	werte->zahlen[count] = rechnung.substr(start, ende);
+	werte->mathe[count] = rechnung.substr((start+ende),1);
 	start = ++i;
 
-	ss[count] << zahlen[count];
-	ss[count] >> number[count];
+	werte->ss[count] << werte->zahlen[count];
+	werte->ss[count] >> werte->number[count];
 	
-	
-	std::cout << zahlen[count] << std::endl
-		  << mathe[count] << std::endl;
 	count = ++count;
 	break;
       case '/':
 	ende = i - start;
-	zahlen[count] = rechnung.substr(start, ende);
-	mathe[count] = rechnung.substr((start+ende),1);
+	werte->zahlen[count] = rechnung.substr(start, ende);
+	werte->mathe[count] = rechnung.substr((start+ende),1);
 	start = ++i;
 
-	ss[count] << zahlen[count];
-	ss[count] >> number[count];
+	werte->ss[count] << werte->zahlen[count];
+	werte->ss[count] >> werte->number[count];
 	
-	
-	std::cout << zahlen[count] << std::endl
-		  << mathe[count] << std::endl;
 	count = ++count;
 	break;
       case '^':
 	ende = i - start;
-	zahlen[count] = rechnung.substr(start, ende);
-	mathe[count] = rechnung.substr((start+ende),1);
+	werte->zahlen[count] = rechnung.substr(start, ende);
+	werte->mathe[count] = rechnung.substr((start+ende),1);
 	start = ++i;
 
-	ss[count] << zahlen[count];
-	ss[count] >> number[count];
+	werte->ss[count] << werte->zahlen[count];
+	werte->ss[count] >> werte->number[count];
 	
-	
-	std::cout << zahlen[count] << std::endl
-		  << mathe[count] << std::endl;
 	count = ++count;
 	break;
       case '\n':
 	ende = i - start;
-	zahlen[count] = rechnung.substr(start, ende);
-	mathe[count] = rechnung.substr((start+ende),1);
+	werte->zahlen[count] = rechnung.substr(start, ende);
+	werte->mathe[count] = rechnung.substr((start+ende),1);
 	start = ++i;
 
-	ss[count] << zahlen[count];
-	ss[count] >> number[count];
+	werte->ss[count] << werte->zahlen[count];
+	werte->ss[count] >> werte->number[count];
 	
-	
-	std::cout << zahlen[count] << std::endl
-		  << mathe[count] << std::endl;
 	count = ++count;
 	break;
 	
@@ -129,13 +96,13 @@ int parsen(std::string rechnung)
 	  else
 	    {
 	      std::cout << "Syntax fehler!" << std::endl;
-	      return SYNTAX_FEHLER;
+	      return werte;
 	    }
       }
     
   }
-    
-  return ERFOLGREICH;
+
+  return werte;
 }
 
 

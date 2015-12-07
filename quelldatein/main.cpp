@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 #include "../headerdatein/parsen.h"
 
-int parsen(std::string rechnung);
+struct werte* parsen(std::string rechnung, struct werte* werte);
 
 void wait()
 {
@@ -11,12 +12,16 @@ void wait()
   std::cin.get();
 }
 
+
+
 int main(){
   std::string rechnung;
-    
+
+  struct werte werte;
+  struct werte* zeiger = &werte;
   std::cout << "Rechnung eingeben: " << std::endl;
   std::cin >> rechnung;
-  parsen(rechnung);
+  zeiger = parsen(rechnung, zeiger);
   
   wait();
   return 0;

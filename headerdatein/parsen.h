@@ -2,10 +2,16 @@
 #define __PARSEN_H__
 
 #include <string>
+#include <iostream>
+#include <sstream>
 
 #define ERFOLGREICH 100
 #define SYNTAX_FEHLER 300
-struct rechnung {     //struct fuer die rechenzeichen
+
+#define MAX_SIZE 60
+
+
+struct werte {     //struct fuer die rechenzeichen
   char quadrat = '^';
   char mal = '*';
   char geteielt = '/';
@@ -13,6 +19,11 @@ struct rechnung {     //struct fuer die rechenzeichen
   char minus = '-';
   char klammerauf = '(';    //hinzugfuegt
   char klammerzu = ')';
+
+  std::string zahlen[MAX_SIZE];
+  std::string mathe[MAX_SIZE];
+  std::stringstream ss[MAX_SIZE];
+  int number[MAX_SIZE];
   
 };
 
